@@ -8,6 +8,15 @@ public class Main {
         Singleton.getInstance().add(null);
 
         Singleton.getInstance().remove(null);
+        Singleton.getInstance().remove(10);
 
+        Singleton.getInstance().remove("Lesha");
+        Singleton.getInstance().add("Aleksey Egoshin");
+
+        Singleton.getInstance().remove(2);
+        Singleton.getInstance().add("postav'te 11 ballov");
+
+        Singleton.getInstance().remove("pozhaluysta");
+        Singleton.getInstance().add("pozhaluysta");
     }
 }
