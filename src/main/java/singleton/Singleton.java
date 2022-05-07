@@ -27,11 +27,11 @@ public class Singleton {
             singleCollection.add(newString);
             System.out.println("Элемент "+newString+" успешно добавлен");
         } catch(IllegalArgumentException e) {
-            System.err.println("На вход была подана не строка");
+            System.out.println("На вход была подана не строка");
         } catch (NullPointerException e) {
-            System.err.println("Попытка использования null");
+            System.out.println("Попытка использования null");
         } catch (ClassCastException e) {
-            System.err.println("Элементы такого типа здесь запрещены");
+            System.out.println("Элементы такого типа здесь запрещены");
         }
     }
     public void remove(int index) {
@@ -39,7 +39,7 @@ public class Singleton {
             singleCollection.remove(index);
             System.out.println("Удаление элемента под индексом "+index+" прошло успешно");
         } catch (IndexOutOfBoundsException e) {
-            System.err.println("Элемента с таким индексом не существует");
+            System.out.println("Элемента с таким индексом не существует");
         }
     }
     public void remove(String existedString) {
@@ -47,9 +47,9 @@ public class Singleton {
         try {
             result = singleCollection.remove(existedString);
         } catch (ClassCastException e) {
-            System.err.println("Элементы такого типа здесь запрещены");
+            System.out.println("Элементы такого типа здесь запрещены");
         } catch (NullPointerException e) {
-            System.err.println("Попытка использования null");
+            System.out.println("Попытка использования null");
         }
         if(result) System.out.println("Удаление элемента "+existedString+" прошло успешно");
     }
