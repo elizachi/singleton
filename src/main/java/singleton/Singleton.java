@@ -5,22 +5,20 @@ import java.util.Collections;
 import java.util.List;
 
 public class Singleton {
-    // поле есть но изначально не инициализировано
-    private static Singleton instance;
-    // наша коллекция
+    private static volatile Singleton instance;
+
     private final List<String> singleCollection = Collections.synchronizedList(new ArrayList<String>());
-    // чтобы нельзя было создавать экземпляр класса извне
-    private Singleton() {}
-    // экземпляр класса создается только при первом обращении
+
     public static Singleton getInstance() {
-        if(instance == null) {
+        Singleton localInstance = instance;
+        if(localInstance == null) {
             synchronized (Singleton.class) {
-                if(instance == null) {
-                    instance = new Singleton();
+                if(localInstance == null) {
+                    instance = localInstance = new Singleton();
                 }
             }
         }
-        return instance;
+        return localInstance;
     }
     public void add(String newString) {
         try {
